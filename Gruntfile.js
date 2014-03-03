@@ -62,8 +62,9 @@ module.exports = function (grunt) {
             },
             preview_dist: {
                 options: {
-                    port: 8888,
-                    base: './dist',
+                    port: 1234,
+                    base: '.',
+                    directory: 'dist',
                     open: true
                 }
             }
@@ -88,7 +89,13 @@ module.exports = function (grunt) {
             ]
         },
 
-
+        // mocha command
+        exec: {
+            mocha: {
+                command: 'mocha-phantomjs http://localhost:<%= connect.testserver.options.port %>/test',
+                stdout: true
+            }
+        },
 
         // require
         requirejs: {
@@ -254,12 +261,6 @@ module.exports = function (grunt) {
             }
         },
 
-        bower: {
-            all: {
-                rjsConfig: 'scripts/main.js'
-            }
-        },
-
         // handlebars
         handlebars: {
             compile: {
@@ -279,22 +280,28 @@ module.exports = function (grunt) {
     });
 
     // starts express server with live testing via testserver
-    grunt.registerTask('default', function (target) {
+    // grunt.registerTask('default', function (target) {
 
-        grunt.option('force', true);
+    //     grunt.option('force', true);
 
-        grunt.task.run([
-            'clean:server',
-            'connect:testserver',
-            'open',
-            'watch'
-        ]);
-    });
+    //     grunt.task.run([
+    //         'clean:server',
+    //         'connect:testserver',
+    //         'watch'
+    //     ]);
+    // });
+
+    grunt.registerTask('default', [
+        'clean:server',
+        'connect:testserver',
+        'watch'
+    ]);
 
     grunt.registerTask('preview_dist', [
         'clean',
         'build',
-        'connect:preview_dist'
+        'connect:preview_dist',
+        'watch'
     ]);
 
     // todo fix these

@@ -56,16 +56,16 @@ module.exports = function (grunt) {
             testserver: {
                 options: {
                     port: 1234,
-                    base: '.',
-                    open: true
+                    base: '.'
+                    // ,
+                    // open: true
                 }
             },
             preview_dist: {
                 options: {
-                    port: 1234,
+                    port: 8888,
                     base: '.',
-                    directory: 'dist',
-                    open: true
+                    directory: 'dist'
                 }
             }
         },
@@ -105,7 +105,7 @@ module.exports = function (grunt) {
 
                     baseUrl: 'scripts',
 
-                    name: "init",
+                    name: "main",
                     // include: ["foo/bar/bee"],
                     // insertRequire: ['foo/bar/bop'],
                     out: "dist/scripts/main.js",
@@ -117,7 +117,7 @@ module.exports = function (grunt) {
                     uglify: {
                         toplevel: true,
                         ascii_only: true,
-                        beautify: false,
+                        beautify: true,
                         max_line_length: 1000,
 
                         //How to pass uglifyjs defined symbols for AST symbol replacement,
@@ -151,7 +151,8 @@ module.exports = function (grunt) {
                     },
 
                     paths: {
-                        'templates': '.tmp/scripts/templates',
+                        'main': 'main',
+                        'templates': '../.tmp/scripts/templates',
                         jquery: '../bower_components/jquery/jquery',
                         backbone: '../bower_components/backbone-amd/backbone',
                         underscore: '../bower_components/underscore-amd/underscore',
@@ -249,7 +250,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     dot: true,
-                    cwd: '<%= yeoman.app %>',
+                    cwd: '.',
                     dest: '<%= yeoman.dist %>',
                     src: [
                         '*.{ico,txt}',

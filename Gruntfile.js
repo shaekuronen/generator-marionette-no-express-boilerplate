@@ -110,7 +110,7 @@ module.exports = function (grunt) {
                     // insertRequire: ['foo/bar/bop'],
                     out: "dist/scripts/main.js",
 
-                    preserveLicenseComments: false,
+                    preserveLicenseComments: true,
 
                     // https://github.com/jrburke/r.js/blob/master/build/example.build.js
                     optimize: 'uglify',
@@ -151,7 +151,6 @@ module.exports = function (grunt) {
                     },
 
                     paths: {
-                        'main': 'main',
                         'templates': '../.tmp/scripts/templates',
                         jquery: '../bower_components/jquery/jquery',
                         backbone: '../bower_components/backbone-amd/backbone',
@@ -175,7 +174,10 @@ module.exports = function (grunt) {
                         /* require handlebars plugin - Alex Sexton */
                         i18nprecompile: '../bower_components/require-handlebars-plugin/hbs/i18nprecompile',
                         json2: '../bower_components/require-handlebars-plugin/hbs/json2',
-                        hbs: '../bower_components/require-handlebars-plugin/hbs'
+                        hbs: '../bower_components/require-handlebars-plugin/hbs',
+
+                        // collections
+                        collection_demo_linked: 'collections/collection_demo_linked'
                     },
 
                     hbs: {

@@ -6,6 +6,7 @@ define(function() {
 		specs: ['spec/collections/collection_demo_linked.js',
 		'spec/controllers/controller_demo.js',
 		'spec/exampleTest.js',
+		'spec/models/model_demo.js',
 		'spec/regions/region_demo.js',
 		'spec/routers/router_demo.js',
 		'spec/views/collection/collectionview_demo.js',

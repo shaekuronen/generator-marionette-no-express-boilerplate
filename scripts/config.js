@@ -49,17 +49,8 @@ require.config({
   // Sets the configuration for your third party scripts that are not AMD compatible
   shim: {
 
-    backbone: {
-        deps: [
-            'underscore',
-            'jquery'
-        ],
-        exports: 'Backbone'
-    },
-    bootstrap: {
-        deps: ['jquery'],
-        exports: 'jquery'
-    }
+    // Twitter Bootstrap jQuery plugins
+    "bootstrap": ["jquery"],
 
   }
 
